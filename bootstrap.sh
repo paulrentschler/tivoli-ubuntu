@@ -56,7 +56,7 @@ echo "Converting RPMs in '$rpm_tar_file' to DEB format."
 # clean up a previous attempt before starting
 if [[ -e /usr/local/src/tivoli ]]; then
     sudo rm -rf /usr/local/src/tivoli
-done
+fi
 
 # create a place to work
 sudo mkdir /usr/local/src/tivoli
