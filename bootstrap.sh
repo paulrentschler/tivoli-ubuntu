@@ -50,7 +50,7 @@ fi
 echo "Converting RPMs in '$rpm_tar_file' to DEB format."
 
 # create a place to work
-mkdir /usr/local/src/tivoli
+sudo mkdir /usr/local/src/tivoli
 sudo chown vagrant:vagrant /usr/local/src/tivoli
 cd /usr/local/src/tivoli
 
