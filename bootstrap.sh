@@ -20,6 +20,8 @@ GSK_SSL_DESC="IBM GSKit SSL Runtime With Acme Toolkit"
 
 
 
+
+
 # install the Alien package for converting RPM packages to DEB format
 apt-get update > /dev/null
 apt-get install -y alien > /dev/null
@@ -65,13 +67,13 @@ cd /usr/local/src/tivoli
 
 # untar the RPM files
 cp /vagrant/$rpm_tar_file ./
-tar -xvf $rpm_tar_file
+tar -xvf $rpm_tar_file > /dev/null
 
 # use Alien to unpack the RPM files
-alien -g TIVsm-API64.x86_64.rpm
-alien -g TIVsm-BA.x86_64.rpm
-alien -g gskcrypt64-*.linux.x86_64.rpm
-alien -g gskssl64-*.linux.x86_64.rpm
+alien -g TIVsm-API64.x86_64.rpm > /dev/null 2&>1
+alien -g TIVsm-BA.x86_64.rpm > /dev/null 2&>1
+alien -g gskcrypt64-*.linux.x86_64.rpm > /dev/null 2&>1
+alien -g gskssl64-*.linux.x86_64.rpm > /dev/null 2&>1
 
 # get the version number for the TSM files (TIVsm-API64 and TIVsm-BA)
 for filename in ${TSM_VERSION_ID_STRING}*; do
