@@ -124,19 +124,19 @@ fi
 gsk_version="${gsk_version/${GSK_VERSION_ID_STRING}/}"
 
 # rename the 'debian' directories to 'DEBIAN'
-sudo mv TIVsm-API64-${TSM_VERSION_ID_STRING}/debian TIVsm-API64-${TSM_VERSION_ID_STRING}/DEBIAN
-sudo mv TIVsm-BA-${TSM_VERSION_ID_STRING}/debian TIVsm-BA-${TSM_VERSION_ID_STRING}/DEBIAN
-sudo mv gskcrypt64-${GSK_VERSION_ID_STRING}/debian gskcrypt64-${GSK_VERSION_ID_STRING}/DEBIAN
-sudo mv gskssl64-${GSK_VERSION_ID_STRING}/debian gskssl64-${GSK_VERSION_ID_STRING}/DEBIAN
+sudo mv TIVsm-API64-${tsm_version}/debian TIVsm-API64-${tsm_version}/DEBIAN
+sudo mv TIVsm-BA-${tsm_version}/debian TIVsm-BA-${tsm_version}/DEBIAN
+sudo mv gskcrypt64-${gsk_version}/debian gskcrypt64-${gsk_version}/DEBIAN
+sudo mv gskssl64-${gsk_version}/debian gskssl64-${gsk_version}/DEBIAN
 
 # add execute permissions to the postinst script
-sudo chmod 755 TIVsm-API64-${TSM_VERSION_ID_STRING}/DEBIAN/postinst
-sudo chmod 755 TIVsm-BA-${TSM_VERSION_ID_STRING}/DEBIAN/postinst
-sudo chmod 755 gskcrypt64-${GSK_VERSION_ID_STRING}/DEBIAN/postinst
-sudo chmod 755 gskssl64-${GSK_VERSION_ID_STRING}/DEBIAN/postinst
+sudo chmod 755 TIVsm-API64-${tsm_version}/DEBIAN/postinst
+sudo chmod 755 TIVsm-BA-${tsm_version}/DEBIAN/postinst
+sudo chmod 755 gskcrypt64-${gsk_version}/DEBIAN/postinst
+sudo chmod 755 gskssl64-${gsk_version}/DEBIAN/postinst
 
 # fix the information in the ./DEBIAN/control files
-cat > TIVsm-API64-${TSM_VERSION_ID_STRING}/DEBIAN/control <<EOL
+cat > TIVsm-API64-${tsm_version}/DEBIAN/control <<EOL
 Source: tivsm-api
 Section: alien
 Priority: extra
@@ -148,7 +148,7 @@ Description: ${TIV_API_DESC}
 Version: ${tsm_version}
 
 EOL
-cat > TIVsm-BA-${TSM_VERSION_ID_STRING}/DEBIAN/control <<EOL
+cat > TIVsm-BA-${tsm_version}/DEBIAN/control <<EOL
 Source: tivsm-ba
 Section: alien
 Priority: extra
@@ -160,7 +160,7 @@ Description: ${TIV_BA_DESC}
 Version: ${tsm_version}
 
 EOL
-cat > gskcrypt64-${GSK_VERSION_ID_STRING}/DEBIAN/control <<EOL
+cat > gskcrypt64-${gsk_version}/DEBIAN/control <<EOL
 Source: gskcrypt64
 Section: alien
 Priority: extra
@@ -172,7 +172,7 @@ Description: ${GSK_CRYPT_DESC}
 Version: ${gsk_version}
 
 EOL
-cat > gskssl64-${GSK_VERSION_ID_STRING}/DEBIAN/control <<EOL
+cat > gskssl64-${gsk_version}/DEBIAN/control <<EOL
 Source: gskssl64
 Section: alien
 Priority: extra
@@ -186,10 +186,10 @@ Version: ${gsk_version}
 EOL
 
 # create the DEB packages
-sudo dpkg -b TIVsm-API64-${TSM_VERSION_ID_STRING}
-sudo dpkg -b TIVsm-BA-${TSM_VERSION_ID_STRING}
-sudo dpkg -b gskcrypt64-${GSK_VERSION_ID_STRING}
-sudo dpkg -b gskssl64-${GSK_VERSION_ID_STRING}
+sudo dpkg -b TIVsm-API64-${tsm_version}
+sudo dpkg -b TIVsm-BA-${tsm_version}
+sudo dpkg -b gskcrypt64-${gsk_version}
+sudo dpkg -b gskssl64-${gsk_version}
 
 # create the DEB packages filename
 deb_tar_file=${rpm_tar_file/.tar/-ubuntu.tar.gz}
