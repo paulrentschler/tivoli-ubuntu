@@ -11,7 +11,7 @@ TSM_VERSION_ID_STRING="TIVsm-API64-"
 GSK_VERSION_ID_STRING="gskcrypt64-"
 
 # define values for the DEBIAN/control files
-MAINTAINER="Paul Rentschler <paul@rentschler.ws"
+MAINTAINER="Paul Rentschler <paul@rentschler.ws>"
 TIV_API_DESC="the API - IBM Tivoli Storage Manager API"
 TIV_BA_DESC="the Backup Archive client - IBM Tivoli Storage Manager Client"
 GSK_CRYPT_DESC="IBM GSKit Cryptography Runtime"
