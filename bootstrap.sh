@@ -21,8 +21,8 @@ GSK_SSL_DESC="IBM GSKit SSL Runtime With Acme Toolkit"
 
 
 # install the Alien package for converting RPM packages to DEB format
-sudo apt-get update > /dev/null 2&>1
-sudo apt-get install -y alien > /dev/null 2&>1
+sudo apt-get update > /dev/null
+sudo apt-get install -y alien > /dev/null
 
 # determine the filename of the RPM-based tar file
 cd /vagrant
