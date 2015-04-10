@@ -21,8 +21,8 @@ GSK_SSL_DESC="IBM GSKit SSL Runtime With Acme Toolkit"
 
 
 # install the Alien package for converting RPM packages to DEB format
-sudo apt-get update > /dev/null
-sudo apt-get install -y alien > /dev/null
+apt-get update > /dev/null
+apt-get install -y alien > /dev/null
 
 # determine the filename of the RPM-based tar file
 cd /vagrant
@@ -55,12 +55,12 @@ echo "Converting RPMs in '$rpm_tar_file' to DEB format."
 
 # clean up a previous attempt before starting
 if [[ -e /usr/local/src/tivoli ]]; then
-    sudo rm -rf /usr/local/src/tivoli
+    rm -rf /usr/local/src/tivoli
 fi
 
 # create a place to work
-sudo mkdir /usr/local/src/tivoli
-sudo chown vagrant:vagrant /usr/local/src/tivoli
+mkdir /usr/local/src/tivoli
+chown vagrant:vagrant /usr/local/src/tivoli
 cd /usr/local/src/tivoli
 
 # untar the RPM files
@@ -68,10 +68,10 @@ cp /vagrant/$rpm_tar_file ./
 tar -xvf $rpm_tar_file
 
 # use Alien to unpack the RPM files
-sudo alien -g TIVsm-API64.x86_64.rpm
-sudo alien -g TIVsm-BA.x86_64.rpm
-sudo alien -g gskcrypt64-*.linux.x86_64.rpm
-sudo alien -g gskssl64-*.linux.x86_64.rpm
+alien -g TIVsm-API64.x86_64.rpm
+alien -g TIVsm-BA.x86_64.rpm
+alien -g gskcrypt64-*.linux.x86_64.rpm
+alien -g gskssl64-*.linux.x86_64.rpm
 
 # get the version number for the TSM files (TIVsm-API64 and TIVsm-BA)
 for filename in ${TSM_VERSION_ID_STRING}*; do
@@ -124,16 +124,16 @@ fi
 gsk_version="${gsk_version/${GSK_VERSION_ID_STRING}/}"
 
 # rename the 'debian' directories to 'DEBIAN'
-sudo mv TIVsm-API64-${tsm_version}/debian TIVsm-API64-${tsm_version}/DEBIAN
-sudo mv TIVsm-BA-${tsm_version}/debian TIVsm-BA-${tsm_version}/DEBIAN
-sudo mv gskcrypt64-${gsk_version}/debian gskcrypt64-${gsk_version}/DEBIAN
-sudo mv gskssl64-${gsk_version}/debian gskssl64-${gsk_version}/DEBIAN
+mv TIVsm-API64-${tsm_version}/debian TIVsm-API64-${tsm_version}/DEBIAN
+mv TIVsm-BA-${tsm_version}/debian TIVsm-BA-${tsm_version}/DEBIAN
+mv gskcrypt64-${gsk_version}/debian gskcrypt64-${gsk_version}/DEBIAN
+mv gskssl64-${gsk_version}/debian gskssl64-${gsk_version}/DEBIAN
 
 # add execute permissions to the postinst script
-sudo chmod 755 TIVsm-API64-${tsm_version}/DEBIAN/postinst
-sudo chmod 755 TIVsm-BA-${tsm_version}/DEBIAN/postinst
-sudo chmod 755 gskcrypt64-${gsk_version}/DEBIAN/postinst
-sudo chmod 755 gskssl64-${gsk_version}/DEBIAN/postinst
+chmod 755 TIVsm-API64-${tsm_version}/DEBIAN/postinst
+chmod 755 TIVsm-BA-${tsm_version}/DEBIAN/postinst
+chmod 755 gskcrypt64-${gsk_version}/DEBIAN/postinst
+chmod 755 gskssl64-${gsk_version}/DEBIAN/postinst
 
 # fix the information in the ./DEBIAN/control files
 cat > TIVsm-API64-${tsm_version}/DEBIAN/control <<EOL
@@ -186,10 +186,10 @@ Version: ${gsk_version}
 EOL
 
 # create the DEB packages
-sudo dpkg -b TIVsm-API64-${tsm_version}
-sudo dpkg -b TIVsm-BA-${tsm_version}
-sudo dpkg -b gskcrypt64-${gsk_version}
-sudo dpkg -b gskssl64-${gsk_version}
+dpkg -b TIVsm-API64-${tsm_version}
+dpkg -b TIVsm-BA-${tsm_version}
+dpkg -b gskcrypt64-${gsk_version}
+dpkg -b gskssl64-${gsk_version}
 
 # create the DEB packages filename
 deb_tar_file=${rpm_tar_file/.tar/-ubuntu.tar.gz}

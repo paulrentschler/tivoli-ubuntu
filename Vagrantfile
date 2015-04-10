@@ -15,5 +15,5 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   end
 
   # Provision with Bash script
-  config.vm.provision :shell, :privileged => false, :path => "bootstrap.sh"
+  config.vm.provision :shell, :path => "bootstrap.sh"
 end
