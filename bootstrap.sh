@@ -25,6 +25,7 @@ sudo apt-get update > /dev/null 2&>1
 sudo apt-get install -y alien > /dev/null 2&>1
 
 # determine the filename of the RPM-based tar file
+cd /vagrant
 for filename in *.tar; do
     if [[ ! -e "$filename" ]]; then continue; fi
     rpm_tar_file=$filename
@@ -32,17 +33,20 @@ for filename in *.tar; do
 done
 
 # error if no RPM-based tar file could be found
-if [ ! -z ${rpm_tar_file+x} ]; then
-    echo ""
-    echo "ERROR: No tar file with the RPM installation files could be found!"
-    echo ""
-    echo "You can fix this by:"
-    echo "  1. destroying the virtual machine by typing: vagrant destroy"
-    echo "  2. downloading the RPM-based client install files from: "
-    echo "       $IBM_CLIENT_DOWNLOAD_URL"
-    echo "  3. putting the downloaded tar file in this directory"
-    echo "  4. starting the process again by typing: vagrant up"
-    echo ""
+if [ -z ${rpm_tar_file+x} ]; then
+    echo "+--------------------------------------------------------------"
+    echo "| ERROR:"
+    echo "| No tar file with the RPM installation files could be found!"
+    echo "|"
+    echo "| You can fix this by:"
+    echo "|   1. destroying the virtual machine by typing:"
+    echo "|        vagrant destroy"
+    echo "|   2. downloading the RPM-based client install files from:"
+    echo "|        $IBM_CLIENT_DOWNLOAD_URL"
+    echo "|   3. putting the downloaded tar file in this directory"
+    echo "|   4. starting the process again by typing:"
+    echo "|        vagrant provision"
+    echo "+--------------------------------------------------------------"
     exit
 fi
 
@@ -70,7 +74,7 @@ for filename in ${TSM_VERSION_ID_STRING}*; do
     tsm_version=$filename
     break
 done
-if [ ! -z ${tsm_version+x} ]; then
+if [ -z ${tsm_version+x} ]; then
     echo ""
     echo "ERROR: Could not determine the version number of the TSM-related files!"
     echo ""
@@ -91,7 +95,7 @@ for filename in ${GSK_VERSION_ID_STRING}*; do
     gsk_version=$filename
     break
 done
-if [ ! -z ${gsk_version+x} ]; then
+if [ -z ${gsk_version+x} ]; then
     echo ""
     echo "ERROR: Could not determine the version number of the GSKit-related files!"
     echo ""
