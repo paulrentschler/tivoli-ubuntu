@@ -193,10 +193,11 @@ deb_tar_file=${rpm_tar_file/.tar/-ubuntu.tar.gz}
 tar -cz *.deb > /vagrant/${deb_tar_file}
 
 # completion message
-echo ""
-echo "Conversion COMPLETE!"
-echo ""
-echo "The DEB packages are in the file: ${deb_tar_file}"
-echo ""
-echo "Happy installing!"
-echo ""
+echo "+--------------------------------------------------------------"
+echo "| Conversion COMPLETE!"
+echo "|"
+echo "| The DEB packages are in the file:"
+echo "|   ${deb_tar_file}"
+echo "|"
+echo "| Happy installing!"
+echo "+--------------------------------------------------------------"
