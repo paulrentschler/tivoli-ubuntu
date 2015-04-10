@@ -53,7 +53,13 @@ if [ -z ${rpm_tar_file+x} ]; then
 fi
 
 # indicate the tar file with the RPM files being used
-echo "Converting RPMs in '$rpm_tar_file' to DEB format."
+echo "+--------------------------------------------------------------"
+echo "| Creating DEBs out of the RPMs found in:"
+echo "|   $rpm_tar_file"
+echo "|"
+echo "| Now would be a good time for a coffee break, this is going"
+echo "| to take a few minutes to complete."
+echo "+--------------------------------------------------------------"
 
 # clean up a previous attempt before starting
 if [[ -e /usr/local/src/tivoli ]]; then
