@@ -75,16 +75,20 @@ for filename in ${TSM_VERSION_ID_STRING}*; do
     break
 done
 if [ -z ${tsm_version+x} ]; then
-    echo ""
-    echo "ERROR: Could not determine the version number of the TSM-related files!"
-    echo ""
-    echo "There should be a directory named something like '${TSM_VERSION_ID_STRING}6.3.2'"
-    echo "in the /usr/local/src/tivoli directory."
-    echo ""
-    echo "Fixing this will require a change to the code, you can fix the code"
-    echo "yourself (pull requests appreciated) or submit an issue here:"
-    echo "  $GITHUB_ISSUE_URL"
-    echo ""
+    echo "+--------------------------------------------------------------"
+    echo "| ERROR:"
+    echo "| Could not determine the version number of the"
+    echo "| TSM-related files!"
+    echo "|"
+    echo "| There should be a directory named something like:"
+    echo "|   '${TSM_VERSION_ID_STRING}6.3.2'"
+    echo "| in the /usr/local/src/tivoli directory."
+    echo "|"
+    echo "| Fixing this will require a change to the code, you can"
+    echo "| fix the code yourself (pull requests appreciated) or "
+    echo "| submit an issue here:"
+    echo "|   $GITHUB_ISSUE_URL"
+    echo "+--------------------------------------------------------------"
     exit
 fi
 tsm_version="${tsm_version/${TSM_VERSION_ID_STRING}/}"
@@ -96,16 +100,20 @@ for filename in ${GSK_VERSION_ID_STRING}*; do
     break
 done
 if [ -z ${gsk_version+x} ]; then
-    echo ""
-    echo "ERROR: Could not determine the version number of the GSKit-related files!"
-    echo ""
-    echo "There should be a directory named something like '${GSK_VERSION_ID_STRING}8.0'"
-    echo "in the /usr/local/src/tivoli directory."
-    echo ""
-    echo "Fixing this will require a change to the code, you can fix the code"
-    echo "yourself (pull requests appreciated) or submit an issue here:"
-    echo "  $GITHUB_ISSUE_URL"
-    echo ""
+    echo "+--------------------------------------------------------------"
+    echo "| ERROR:"
+    echo "| Could not determine the version number of the"
+    echo "| GSKit-related files!"
+    echo "|"
+    echo "| There should be a directory named something like:"
+    echo "|   '${GSK_VERSION_ID_STRING}8.0'"
+    echo "| in the /usr/local/src/tivoli directory."
+    echo "|"
+    echo "| Fixing this will require a change to the code, you can"
+    echo "| fix the code yourself (pull requests appreciated) or "
+    echo "| submit an issue here:"
+    echo "|   $GITHUB_ISSUE_URL"
+    echo "+--------------------------------------------------------------"
     exit
 fi
 gsk_version="${gsk_version/${GSK_VERSION_ID_STRING}/}"
