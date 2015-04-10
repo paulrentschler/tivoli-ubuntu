@@ -53,6 +53,11 @@ fi
 # indicate the tar file with the RPM files being used
 echo "Converting RPMs in '$rpm_tar_file' to DEB format."
 
+# clean up a previous attempt before starting
+if [[ -e /usr/local/src/tivoli ]]; then
+    sudo rm -rf /usr/local/src/tivoli
+done
+
 # create a place to work
 sudo mkdir /usr/local/src/tivoli
 sudo chown vagrant:vagrant /usr/local/src/tivoli
