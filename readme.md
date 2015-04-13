@@ -226,6 +226,15 @@ The file should contain roughly this list to backup the /backup and
     EXCLUDE.DIR "/var/cache"
 
 
+## Problems and/or improvements
+
+If you run into a problem with the process,
+[create an issue](https://github.com/paulrentschler/tivoli-ubuntu/issues)
+on GitHub.
+
+If you have an improvement or bug fix, pull requests are welcome.
+
+
 ## Credits
 
 Special thanks to the following resources that were used in constructing the
