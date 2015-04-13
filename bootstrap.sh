@@ -5,7 +5,7 @@
 #
 
 # define some constants
-GITHUB_ISSUE_URL="http://www.github.com/paulrentschler"
+GITHUB_ISSUE_URL="http://www.github.com/paulrentschler/tivoli-ubuntu/issues"
 IBM_CLIENT_DOWNLOAD_URL="http://www-01.ibm.com/support/docview.wss?uid=swg21239415"
 TSM_VERSION_ID_STRING="TIVsm-API64-"
 GSK_VERSION_ID_STRING="gskcrypt64-"
